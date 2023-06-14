@@ -1,17 +1,12 @@
 import os
 
 import pandas as pd
+from dotenv import dotenv_values
 
 
 def read_env(path_file):
     """Read the .env file keys."""
-    env = {}
-
-    for line in open(path_file + "/.env", "r"):
-        key_value = line.split("=")
-        env[key_value[0].strip()] = key_value[1].strip()
-
-    return env
+    return dotenv_values(path_file + "/.env")
 
 
 def read_data(path_file):
